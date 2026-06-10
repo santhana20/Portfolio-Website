@@ -324,6 +324,34 @@ gap:15px;
 
 .education-card span {
     opacity: 0.8;
+}
+.internship-banner {
+    margin: 40px auto;
+    padding: 15px;
+    text-align: center;
+    background: linear-gradient(90deg, #00d4ff, #0077ff);
+    color: white;
+    font-weight: bold;
+    border-radius: 12px;
+    max-width: 600px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+/* Dark mode styles */
+body.dark {
+    background: #0f0f0f;
+    color: white;
+}
+
+body.dark .glass {
+    background: rgba(255,255,255,0.08);
 }    
 </style>
 </head>
@@ -340,6 +368,7 @@ gap:15px;
 <li><a href="#projects">Projects</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
+<button id="modeToggle">🌙</button>    
 </nav>
 
 <section class="hero">
@@ -374,7 +403,7 @@ Passionate about creating useful applications and solving real-world problems th
     <div class="glass education-card">
         <h3>B.Sc Computer Science</h3>
         <p>Holy Cross College, Trichy</p>
-        <span>2023 - Present</span>
+        <span>2024 - 2027</span>
     </div>
 </section>
 <section id="skills" class="fade">
@@ -430,6 +459,9 @@ Developed a simple AI Interview Question Generator using Python and Streamlit th
 </div>
 </section>
 
+<div class="internship-banner">
+    🚀 Available for Internships & Collaborations
+</div>
 <section id="contact" class="fade">
 <h2 class="title">Contact</h2>
 
@@ -540,7 +572,18 @@ topBtn.addEventListener("click", () => {
         top: 0,
         behavior: "smooth"
     });
-});   
+}); 
+const toggleBtn = document.getElementById("modeToggle");
+
+toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+
+    if (document.body.classList.contains("dark")) {
+        toggleBtn.innerHTML = "☀️";
+    } else {
+        toggleBtn.innerHTML = "🌙";
+    }
+});    
 </script>    
 
 </body>
