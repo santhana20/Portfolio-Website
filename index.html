@@ -69,8 +69,7 @@ nav {
     align-items: center;
     padding: 25px 8%;
     background: rgba(10,10,10,0.9);
-    position: sticky;
-    top: 0;
+    position: relative;
     
 }
 .logo {
@@ -83,8 +82,9 @@ nav ul {
     display: flex;
     gap: 40px;
     list-style: none;
-    margin: 0;
-    padding: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     
 }
 nav ul li a {
@@ -101,6 +101,7 @@ nav ul li a:hover{
     border: none;
     background: transparent;
     cursor: pointer;
+    color: white;
 }
 .hero{
 height:100vh;
