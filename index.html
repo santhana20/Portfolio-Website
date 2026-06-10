@@ -47,7 +47,7 @@ bottom:-100px;
 right:-100px;
 z-index:-1;
 }
-/* ===== Professional Navbar with Dark/Light Theme ===== */
+
 :root {
   --accent-color: #00f5d4;
   --text-color: #fff;
@@ -78,7 +78,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  flex-direction: row;
 }
 
 nav .logo {
@@ -92,7 +92,9 @@ nav ul {
   display: flex;
   gap: 45px;
   list-style: none;
-  flex-wrap: wrap;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 nav a {
