@@ -47,33 +47,118 @@ bottom:-100px;
 right:-100px;
 z-index:-1;
 }
+/* ===== Professional Navbar with Dark/Light Theme ===== */
+:root {
+  --accent-color: #00f5d4;
+  --text-color: #fff;
+  --bg-color: #0a0a0a;
+  --nav-bg-rgb: 0, 0, 0;
+  --nav-border-rgb: 255, 255, 255;
+}
+
+body.light-theme {
+  --text-color: #111;
+  --bg-color: #f8f9fa;
+  --nav-bg-rgb: 255, 255, 255;
+  --nav-border-rgb: 0, 0, 0;
+}
 
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 25px 8%;
-    background: rgba(10,10,10,0.9);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background: rgba(var(--nav-bg-rgb), 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 18px 40px;
+  border-bottom: 1px solid rgba(var(--nav-border-rgb), 0.12);
+  transition: background 0.3s ease, border 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
-.logo {
-    font-size: 1.9rem;
-    font-weight: 700;
-    color: #00f5ff;
+
+nav .logo {
+  color: var(--accent-color);
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
 }
+
 nav ul {
-    display: flex;
-    gap: 40px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  display: flex;
+  gap: 45px;
+  list-style: none;
+  flex-wrap: wrap;
 }
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
+
+nav a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  position: relative;
+  padding: 6px 0;
+  transition: color 0.3s ease;
+  opacity: 0.9;
+}
+
+nav a:hover {
+  color: var(--accent-color);
+  opacity: 1;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background: var(--accent-color);
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Theme toggle button */
+#modeToggle {
+  background: transparent;
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+  padding: 8px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: 0.3s;
+}
+
+#modeToggle:hover {
+  background: var(--accent-color);
+  color: var(--bg-color);
+  transform: rotate(180deg);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  nav {
+    padding: 15px 20px;
+  }
+  nav ul {
+    gap: 20px;
+  }
+  nav a {
+    font-size: 0.9rem;
+  }
+  nav .logo {
+    font-size: 1.5rem;
+  }
 }
 
 .hero{
