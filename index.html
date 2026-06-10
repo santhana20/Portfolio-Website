@@ -279,12 +279,24 @@ gap:15px;
     max-width: 700px;
     line-height: 1.8;
 }
+
+#progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: #00d4ff;
+    z-index: 9999;
+}    
+
   
 </style>
 </head>
 
 <body>
 
+<div id="progress-bar"></div>
 <nav>
 <div class="logo">Santhana</div>
 <ul>
@@ -458,7 +470,16 @@ function startJourney() {
     }
 
     typeWriter();
-}    
+} 
+window.addEventListener("scroll", () => {
+    let scrollTop = document.documentElement.scrollTop;
+    let scrollHeight =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+
+    let progress = (scrollTop / scrollHeight) * 100;
+    document.getElementById("progress-bar").style.width = progress + "%";
+});    
 </script>    
 
 </body>
