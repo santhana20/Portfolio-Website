@@ -314,12 +314,44 @@ font-size:2.5rem;
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes slideDown{from{transform:translateY(-50px);opacity:0}to{transform:translateY(0);opacity:1}}
 
-#journey-text {
-    color: white;
-    font-size: 1.2rem;
-    margin-top: 20px;
-    max-width: 700px;
-    line-height: 1.8;
+/* Section center alignment */
+.journey-section {
+  width: 100%;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Typing text style */
+.typing {
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid black;
+
+  /* typing animation */
+  width: 0;
+  animation: typing 3s steps(20) forwards, blink 0.7s infinite;
+}
+
+/* Typing animation */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 20ch;
+  }
+}
+
+/* Cursor blink */
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
 }
 
 #progress-bar {
